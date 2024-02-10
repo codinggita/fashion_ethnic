@@ -5,24 +5,12 @@ import homeimg from '../photo/K15R-_1_600x.webp'
 import {Link} from 'react-router-dom'
 import Footer from './Footer'
 import Products from './Products'
-import { useState } from 'react'
-import axios from 'axios';
-import  { useEffect } from 'react'
+// import { useState } from 'react'
+// import axios from 'axios';
+// import  { useEffect } from 'react'
 
 
 export default function Home() {
-
-  const[products,setProducts]=useState();
-
-  useEffect(() => {
-    axios.get('http://localhost:7000/home')
-    .then((response) => {
-      setProducts(response.data)
-    })
-    .catch((error) => {
-      console.error(`Error fetching details for frontend:`, error);
-    });
-  },[])
 
   return (
     <>
@@ -45,24 +33,7 @@ export default function Home() {
       </select>
       {/* <input className='sortby' type='dropdown'>Sort by<img className='downarrow-img' src={downarrow} alt='logo'/></input> */}
     </div>
-    <div className='product-container'>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-    </div>
-    <div className='product-container'>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-    </div>
-    <div className='product-container'>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-      <Link className='link' to='/Productdetails'><Products/></Link>
-    </div>
+    <Products/>
     <Footer/>
     </>
   )

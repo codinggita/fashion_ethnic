@@ -9,7 +9,7 @@ app.use(cors());
 
 let customers={
     cus: [
-      {"c_name": "John"},
+      {"c_name1": "John"},
       {"c_name": "Jane"},
       {"c_name": "Ahmed"},
       {"c_name": "Maria"},
@@ -21,6 +21,7 @@ let customers={
       {"c_name": "Linda"}
     ]
   };
+  console.log(customers.cus[0].c_name1);
  let products={
     pro: [
     {
@@ -56,9 +57,6 @@ let customers={
   ]
 }
 
-
-  
-
 app.get("/login",(req,res)=>{
     res.send("you are in login route");
 });
@@ -69,14 +67,14 @@ app.get("/home",(req,res)=>{
     // res.send("you are in home route");
     res.json(products.pro);
 });
+app.get("/products",(req,res)=>{
+  res.json(products.pro);
+});
 app.get("/profile",(req,res)=>{
     res.send(`you are in profile route ${req.params.id}`)
 })
 app.post("/create_account",(req,res)=>{
     res.send("you are in create account route");
-});
-app.get("new_arrivals",(req,res)=>{
-    res.send("you are in new arrival route");
 });
 app.get("/customer", (req, res) => {
     res.json(customers.cus);

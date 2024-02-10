@@ -8,13 +8,13 @@ import '../component-css/Navbar.css'
 import downimg from '../photo/caret-down-solid.svg'
 import axios from 'axios'
 
-export default function Navbar() {
+export default function Navbar({name}) {
 
   const [customer, setCustomer] = useState([]);
-  const [customername, setCustomerName] = useState([]);
+  // const [customername, setCustomerName] = useState([]);
 
   useEffect(()=>{
-    axios.get(`http://localhost:7000/Navbar/${customername}`)
+    axios.get(`http://localhost:7000/Navbar/John`)
     .then((response)=>{
       setCustomer(response.data);
     })
