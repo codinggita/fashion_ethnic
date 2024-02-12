@@ -1,0 +1,13 @@
+.dashboard-outer-container{
+    border: 1px black solid;
+}
+.dash-list{
+    list-style-type: none;
+}
+.image-div{
+    height: 50px;
+    width: 200px;
+}
+.dash-list-con{
+font-size: 20px;
+}
