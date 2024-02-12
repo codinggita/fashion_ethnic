@@ -5,6 +5,8 @@ import homeimg from '../photo/K15R-_1_600x.webp'
 import {Link} from 'react-router-dom'
 import Footer from './Footer'
 import Products from './Products'
+import Pagination from './Paginationcount'
+import Dropdown from './Dropdown'
 // import { useState } from 'react'
 // import axios from 'axios';
 // import  { useEffect } from 'react'
@@ -26,14 +28,12 @@ export default function Home() {
     <p className='line'>_________________________________________________________________________________________________________________________________________________________________</p>
     <div className='filter-container'>
       <button className='filter'>FILTERS</button>
-      <select className='dropdown'>
-        <option className='dropdown-ops' disabled selected hidden>Sort by</option>
-        <option className='dropdown-ops'>Price Low-High</option>
-        <option className='dropdown-ops'>Price High-Low</option>
-      </select>
-      {/* <input className='sortby' type='dropdown'>Sort by<img className='downarrow-img' src={downarrow} alt='logo'/></input> */}
+      <Dropdown/>
     </div>
     <Products/>
+    <div className='paginationcount'>
+    <Pagination/>
+    </div>
     <Footer/>
     </>
   )

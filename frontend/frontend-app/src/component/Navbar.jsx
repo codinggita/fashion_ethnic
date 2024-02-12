@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
-import burger from '../photo/bars-solid.svg' 
+import {Link} from 'react-router-dom'; 
 import profileimg from '../photo/DSC02986.JPG'
 import heartimg from '../photo/heart-solid.svg'
 import cartimg from '../photo/cart-shopping-solid.svg'
 import '../component-css/Navbar.css'
 import downimg from '../photo/caret-down-solid.svg'
 import axios from 'axios'
+import NavDrawer from './NavDrawer'
 
 export default function Navbar({name}) {
 
@@ -27,7 +27,9 @@ export default function Navbar({name}) {
   return (
     <>
     <div className='outer-container1'>
-    <img className='burger-img' src={burger} alt='logo'></img>
+     <div className='burger-img'>
+      < NavDrawer/>
+     </div>
     <div className='inner-container'>
     <img className='down-img' src={downimg} alt="logo" />
     <img className='profile-img' src={profileimg} alt="logo" />

@@ -11,7 +11,8 @@
     margin-top:30px;
     /* background: linear-gradient(to right, blue, orange) ; */
     /* background-image: linear-gradient(45deg, blue, orange); */
-    background-image: linear-gradient(45deg, blue, #ff7f50, orange);
+    /* background-image: linear-gradient(45deg, blue, #ff7f50, orange); */
+    background: linear-gradient(45deg, #FFC0CB, #ADD8E6, #90EE90);
 
 }
 .Welcome-img{
