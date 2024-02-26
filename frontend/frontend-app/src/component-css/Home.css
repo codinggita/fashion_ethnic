@@ -72,5 +72,9 @@ column-gap: 350px;
 .product-container{
     display: flex;
     column-gap: 50px;
-    margin-left:400px
+    margin-left:250px
+}
+.paginationcount{
+    margin-top: 200px;
+    margin-left: 780px;
 }

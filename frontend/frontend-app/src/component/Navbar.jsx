@@ -18,7 +18,7 @@ export default function Navbar() {
      </div>
     <div className='inner-container'>
     <img className='down-img' src={downimg} alt="logo" />
- {isAuthenticated && <img className='profile-img' src={user.picture} alt={user.name} />}
+    {isAuthenticated && <img className='profile-img' src={user.picture} alt={user.name} />}
     <Link className='link' to="/Profile">{ isAuthenticated && <p className='name' id='name1'>{user.name}</p>}</Link>
     <img className='heart-img' src={heartimg} alt="logo" />
     <Link className='link' to="/Wishlist"><p className='name' id='name2'>Wishlist</p></Link>

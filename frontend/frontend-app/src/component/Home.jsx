@@ -30,7 +30,9 @@ export default function Home() {
       <button className='filter'>FILTERS</button>
       <Dropdown/>
     </div>
+    <div className='product-container'>
     <Products/>
+    </div>
     <div className='paginationcount'>
     <Pagination/>
     </div>
