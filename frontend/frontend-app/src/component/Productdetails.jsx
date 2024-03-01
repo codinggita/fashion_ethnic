@@ -1,33 +1,45 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
+import { useParams} from 'react-router-dom'
+import axios from 'axios'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import image1 from '../photo/Screenshot 2024-01-18 195928.png'
-import image2 from '../photo/Screenshot 2024-01-18 232014.png'
-import image3 from '../photo/Screenshot 2024-01-18 232037.png'
-import image4 from '../photo/Screenshot 2024-01-18 232103.png'
 import bagimg from '../photo/bag-shopping-solid.svg'
 import likeimg from '../photo/heart-regular.svg'
 import '../component-css/Productdetails.css'
 
-export default function productdetails() {
+
+export default function Productdetails() {
+
+  const [product,setProduct] = useState({});
+  const params = useParams();
+
+  useEffect(() =>{
+    axios.get(`http://localhost:7000/productdetails/${params.name}`)
+    .then((response) => {
+      setProduct(response.data);
+    })
+    .catch((error) => {
+      console.error(`Error fetching product details:`, error);
+    });
+  },[])
   return (
     <>
     <Navbar/>
     <div className='detail-container'>
       <div className='image-div'>
       <div className='image-container1'>
-        <img className='product-image' src={image1} alt="logo" />
-        <img className='product-image' src={image2} alt="logo" />
+        <img className='product-image' src={product.image1} alt="logo" />
+        <img className='product-image' src={product.image2} alt="logo" />
       </div>
       <div className='image-container2'>
-        <img className='product-image' src={image3} alt="logo" />
-        <img className='product-image' src={image4} alt="logo" />
+        <img className='product-image' src={product.image3} alt="logo" />
+        <img className='product-image' src={product.image4} alt="logo" />
       </div>
       </div>
       <div className='text-detail-container'>
-        <p className='name'>KRAFT INDIA</p>
-        <p className='short-detail'>Men Yellow Ethnic Motifs Jacquard Kurta</p>
-        <p className='product_price'>Rs. 1199.89<span className='discount'>  (67% OFF)</span></p>
+        <p className='name'>{product.Productname}</p>
+        <p className='short-detail'>{product.productShortDetail}</p>
+        <p className='product_price'>{product.price}<span className='discount'>  (67% OFF)</span></p>
         <p className='tax'>inclusive of all taxes</p>
         <p className='detail-line'>__________________________________________</p>
         <p className='size-text'>SELECT SIZE <span className='chart'>SIZE CHART</span></p>

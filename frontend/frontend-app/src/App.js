@@ -30,7 +30,7 @@ function App(){
                     <Route path="/Signin" Component={Signin}></Route> 
                     <Route path="/Navbar" Component={Navbar}></Route>
                     <Route path="/Product" Component={Product}></Route>
-                    <Route path="/Productdetails" Component={Productdetails}></Route>
+                    <Route path="/Productdetails/:name" Component={Productdetails}></Route>
                     <Route path="/Cart" Component={Cart}></Route>
                     <Route path="/Bill" Component={Bill}></Route>
                     <Route path='/Profile' Component={Profile}></Route>

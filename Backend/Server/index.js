@@ -3,7 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 const port = 7000;
-
+app.use(express.static('public'));
 app.use(express.json());
 app.use(cors());
 
@@ -67,38 +67,34 @@ let customers={
     {
 
       "productName": "Elegant Kurta",
+      "image":"http://localhost:7000/Screenshot 2024-01-18 195819.png",
       "rating": 4.5,
       "productShortDetail": "A pure cotton kurta in navy blue, perfect for casual and semi-formal wear.",
       "price": 25.99,
-      "image1":"C:\Aharsh Singh\fashion_ethnic\frontend\frontend-app\src\photo\Screenshot 2024-01-18 232103.png"
     },
     {
       "productName": "Traditional Kurta",
       "rating": 4.8,
       "productShortDetail": "Luxurious silk kurta with intricate embroidery.",
       "price": 45.50,
-      "image":"C:\Aharsh Singh\fashion_ethnic\frontend\frontend-app\src\photo\Screenshot 2024-01-18 232103.png"
     },
     {
       "productName": "Casual Kurta",
       "rating": 4.2,
       "productShortDetail": "Light and breezy linen kurta in white, great for everyday comfort.",
       "price": 29.99,
-      "image":"C:\Aharsh Singh\fashion_ethnic\frontend\frontend-app\src\photo\Screenshot 2024-01-18 232103.png"
     },
     {
       "productName": "Georgette Kurta",
       "rating": 4.7,
       "productShortDetail": "Bright and beautiful georgette kurta with detailed work.",
       "price": 39.99,
-      "image":"C:\Aharsh Singh\fashion_ethnic\frontend\frontend-app\src\photo\Screenshot 2024-01-18 232103.png"
     },
     {
       "productName": "Designer Kurta",
       "rating": 4.9,
       "productShortDetail": "Exclusive designer kurta with hand-embroidered patterns.",
       "price": 59.99,
-      "image2":"/Backend/Server/photo/Screenshot 2024-01-18 232103.png"
     }
   ]
 }
@@ -115,6 +111,15 @@ app.get("/home",(req,res)=>{
 });
 app.get("/products",(req,res)=>{
   res.json(products.pro);
+});
+app.get("/productdetails/:name",(req,res) => {
+  const productName = req.params.name;
+  const product = products.pro.find(p => p.productName === productName);
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).send('Product not found');
+  }
 });
 app.get("/profile/:c_id", (req, res) => {
   const { c_id } = req.params;

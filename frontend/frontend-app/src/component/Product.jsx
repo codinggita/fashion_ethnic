@@ -11,9 +11,9 @@ export default function Product(props) {
 
   return (
     <>
-    <Link to='/Productdetails'>
+  <Link to={`Productdetails/${product.productName}`}>
       <div className='card'>
-        <img className='product-img' src={productimg} alt="Product" />
+        <img className='product-img' src={product.image} alt="Product" />
         <div className='card-container'>
           <p className='product-name'>{product.productName}</p>
           <p className='rating'>{product.rating}</p>
