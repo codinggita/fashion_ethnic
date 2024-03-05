@@ -1,0 +1,41 @@
+.gender-outer-container{
+    margin-top: 280px ;
+    margin-left: 780px;
+    margin-bottom: 400px;
+}
+.gender-box{
+    border: none;
+    background-color: rgb(202, 202, 202);
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    margin-top: 10px;
+}
+.gender-box:hover{
+    scale: 1.2;
+    transition-duration:1s ;
+}
+.vline{
+border-right: 1px solid black;
+height: 150px;
+}
+.gender-container{
+    display: flex;
+    column-gap: 30px;
+    margin-top: 30px;
+}
+.gender-img{
+    height: 50px;
+    width: 50px;
+    padding-top: 20px;
+    padding-left: 25px;
+}
+.gender-heading{
+    font-size: 35px;
+    margin-left: 105px;
+}
+.gender-para{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 35px;
+}

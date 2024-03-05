@@ -1,0 +1,33 @@
+.dashboard-outer-container{
+    border: 1px black solid;
+    height: 650px;
+    width: 650px;
+
+}
+.info-div{
+    display: flex;
+    column-gap: 50px;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.dash-list{
+    list-style-type: none;
+    margin-left: 50px;
+}
+
+.image-div{
+    height: 50px;
+    width: 50px;
+}
+.dash-list-con{
+font-size: 20px;
+margin-bottom: 15px;
+}
+.update-btn{
+    background-color: #FE8551;
+    color: white;
+    padding:10px;
+    border-radius: 10px;
+    margin-left: 500px;
+    margin-top: 50px;
+}

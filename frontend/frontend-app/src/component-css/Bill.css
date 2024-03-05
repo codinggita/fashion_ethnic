@@ -1,0 +1,67 @@
+.address-card{
+    border: 1px solid black;
+    width: 450px;
+    height: 180px;  
+    margin-top: 50px; 
+    margin-left: 400px;
+}
+#del{
+    margin-left: 400px;
+}
+.edit{
+    background-color: #FE8551;
+    color: #132C48;
+    border: 1px soild black;
+    padding:8px;
+    width: 70px;
+    margin-left: 340px;
+    border-radius: 15px;
+}
+#address{
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.phone{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+#name{
+    margin-top: 10px;
+    color: #132C48;
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+.button-div{
+    border: dashed 1px black;
+    padding:40px;
+    margin-top: 50px;
+    width: 370px;
+    margin-left: 400px;
+}
+.address-button{
+    padding: 15px;
+    color: #132C48;
+    background-color: #FE8551;
+    border: 1px solid ;
+    margin-left: 80px;
+    width: 200px;
+    border-radius: 5px;
+}
+.chat-div{
+    margin-left: 1650px;
+    display: flex;
+    column-gap: 10px;
+    margin-top: 100px;
+}
+.chat-img{
+    height: 35px;
+    width: 35px;
+}
+.chat-text{
+    margin-top: 5px;
+    
+}
+.talktous-link{
+    text-decoration: none;
+}

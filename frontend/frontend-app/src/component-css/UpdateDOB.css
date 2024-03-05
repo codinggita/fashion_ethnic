@@ -1,0 +1,15 @@
+.dob-input{
+    border: none;
+    height: 50px;
+    width: 350px;
+    font-size: 18px;
+}
+.dob-input:focus {
+    outline: none;
+    border: none;
+    /* Add any other styles you want for the focused state */
+  }
+.legend-input{
+    font-size: 25px;
+    margin-left: 10px;
+}
