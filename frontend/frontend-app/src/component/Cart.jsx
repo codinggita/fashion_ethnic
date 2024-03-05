@@ -1,11 +1,20 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import {CartContext} from '../Context/CartContext'
 import Productsnippet from './Product_snippet'
 import '../component-css/Cart.css'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 export default function Cart() {
+
+  const { cart } = useContext(CartContext);
+
+  useEffect(() =>{
+    if(!cart.items)
+      return;
+  },[])
   return (
     <>
     <Navbar/>

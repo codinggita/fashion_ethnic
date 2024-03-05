@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter,Routes, Route, Navigate} from "react-router-dom";
 import Home from "./component/Home"
 import Signin from "./component/Signin"
@@ -21,10 +21,24 @@ import UpdatePhone from './component/UpdatePhone.jsx'
 import UpdateGender from './component/UpdateGender.jsx'
 import UpdateDOB from './component/UpdateDOB.jsx'
 import UpdateAltPhone from './component/UpdateAltPhone.jsx'
+import { CartContext } from './Context/CartContext.jsx';
 function App(){
+
+    const [ cart, setCart ] = useState({});
+
+    useEffect(() => {
+        const cart = window.localStorage.getItem('cart');
+        setCart(JSON.parse(cart));
+        // console.log(JSON.parse(cart));
+    },[])
+    useEffect(() => {
+        window.localStorage.setItem('cart' , JSON.stringify(cart));
+    },[cart])
+
     return(
         <>
             <BrowserRouter>
+            <CartContext.Provider value={ {cart, setCart} }>
                 <Routes>
                     <Route path="/" Component={Home}></Route>
                     <Route path="/Signin" Component={Signin}></Route> 
@@ -50,6 +64,7 @@ function App(){
                     <Route path='/UpdateAltPhone' Component={UpdateAltPhone}></Route>
                     <Route path="*" element={<Navigate to="/Home" replace />} />
                 </Routes>
+                </CartContext.Provider>
             </BrowserRouter>
         </>
     )

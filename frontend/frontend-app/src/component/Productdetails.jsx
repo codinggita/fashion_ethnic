@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useContext } from 'react'
 import { useParams} from 'react-router-dom'
 import axios from 'axios'
 import Navbar from './Navbar'
@@ -6,6 +6,7 @@ import Footer from './Footer'
 import bagimg from '../photo/bag-shopping-solid.svg'
 import likeimg from '../photo/heart-regular.svg'
 import '../component-css/Productdetails.css'
+import { CartContext } from '../Context/CartContext'
 
 
 export default function Productdetails() {
@@ -22,6 +23,29 @@ export default function Productdetails() {
       console.error(`Error fetching product details:`, error);
     });
   },[])
+
+  const { cart,setCart } = useContext(CartContext);
+
+  const addToCart = (event,product) =>{
+    // console.log(event)
+    // console.log(product)
+    let _cart = {...cart};
+    if(!_cart.items)
+      _cart.items = {}
+
+    if(_cart.items[product.productName])
+      _cart.items[product.productName] = _cart.items[product.productName] + 1;
+    
+    else
+      _cart.items[product.productName] = 1;
+    
+    if(!_cart.totalitems)
+      _cart.totalitems = 0;
+
+    _cart.totalitems += 1;  
+    
+    setCart(_cart);
+  }
   return (
     <>
     <Navbar/>
@@ -51,7 +75,7 @@ export default function Productdetails() {
           <button className='size-button'>XLL</button>
         </div>
         <div className='button-container'>
-          <button className='detail-button'><img className='bag-img' src={bagimg} alt='logo' />Add to bag</button>
+          <button className='detail-button' onClick={(event) => addToCart(event,product)}><img className='bag-img' src={bagimg} alt='logo' />Add to bag</button>
           <button className='detail-button'><img className='bag-img' src={likeimg} alt="logo" />Wishlist</button>
         </div>
         <p className='detail-line'>__________________________________________</p>

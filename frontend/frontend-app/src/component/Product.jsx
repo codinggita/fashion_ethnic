@@ -1,8 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import productimg from '../photo/Screenshot 2024-01-18 195819.png'
-// import ratingimg from '../photo/'
-// import '../component-css/Product.css'
+import ratingimg from '../photo/star-solid.svg'
 import '../component-css/Products.css'
 
 export default function Product(props) {
@@ -11,15 +9,17 @@ export default function Product(props) {
 
   return (
     <>
-  <Link to={`Productdetails/${product.productName}`}>
+  <Link className='product-link' to={`Productdetails/${product.productName}`}>
       <div className='card'>
         <img className='product-img' src={product.image} alt="Product" />
         <div className='card-container'>
           <p className='product-name'>{product.productName}</p>
+          <div className='clg'>
           <p className='rating'>{product.rating}</p>
-          {/* <img className='rating-img' src={ratingimg} alt="Rating" /> */}
+          <img className='rating-img' src={ratingimg} alt="Rating" />
+          </div>
         </div>
-        <p className='product-intro'>{product.productShortDetail}</p>
+        {/* <p className='product-intro'>{product.productShortDetail}</p> */}
         <p className='price'>Rs.{product.price}<span className='discount'>(67% off)</span></p>
       </div>
       </Link>
