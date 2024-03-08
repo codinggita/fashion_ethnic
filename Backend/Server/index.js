@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require("cors");
+const color = require("cli-color")
 require("dotenv").config();
 const app = express();
 const port = 7000;
@@ -7,20 +8,6 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(cors());
 
-// let customers={
-//     cus: [
-//       {"c_name1": "John"},
-//       {"c_name": "Jane"},
-//       {"c_name": "Ahmed"},
-//       {"c_name": "Maria"},
-//       {"c_name": "James"},
-//       {"c_name": "Emily"},
-//       {"c_name": "Robert"},
-//       {"c_name": "Patricia"},
-//       {"c_name": "Michael"},
-//       {"c_name": "Linda"}
-//     ]
-//   };
 let customers={
  cus : [
     {
@@ -146,6 +133,22 @@ app.get("/Navbar/:customername",(req,res)=>{
         res.json(customer);
     }
 });
+app.post("/updateInfo",(req,res) => {
+  const { phone, gender, dob, altPhone } = req.body;
+  console.log(req.body);
+  if(!phone || !gender || !dob || !altPhone){
+      return res.status(400).json({error : 'Info incomplete'});
+  }
+  const customer = {
+      phone,
+      gender,
+      dob,
+      altPhone,
+      // id : new Date().getTime().toString()
+  };
+  customers.cus.push(customer);
+  res.json(customer);
+})
 app.listen(port,()=>{
     console.log(`app running on the ${port}`);
 });
